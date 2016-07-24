@@ -26,7 +26,7 @@ public class Page<T> {
 	protected boolean autoCount = true;
 
 	//-- 返回结果 --//
-	protected List<T> result = Collections.emptyList();
+	protected List<T> data = Collections.emptyList();
 	protected long totalCount = -1;
 
 	//-- 构造函数 --//
@@ -44,7 +44,7 @@ public class Page<T> {
 
 	@SuppressWarnings("unchecked")
     public Page(Object result, Long totalCount, Integer offset, Integer limit) {
-        this.result = (List<T>) result;
+        this.data = (List<T>) result;
         this.totalCount = totalCount;
         setRange(offset, limit);
     }
@@ -185,15 +185,15 @@ public class Page<T> {
 	/**
 	 * 取得页内的记录列表.
 	 */
-	public List<T> getResult() {
-		return result;
+	public List<T> getData() {
+		return data;
 	}
 
 	/**
 	 * 设置页内的记录列表.
 	 */
-	public void setResult(final List<T> result) {
-		this.result = result;
+	public void setData(final List<T> result) {
+		this.data = result;
 	}
 
 	/**

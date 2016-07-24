@@ -7,12 +7,12 @@ import javax.persistence.Column;
 public abstract class AbstractEntity {
 
     @Column(updatable = false)
-    protected Long createUser;
+    protected Long createUser = 0L;
 
     @Column(updatable = false)
     protected Date createTime;
 
-    protected Long updateUser;
+    protected Long updateUser = 0L;
 
     protected Date updateTime;
 

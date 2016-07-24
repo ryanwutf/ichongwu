@@ -5,7 +5,7 @@
 
 	<groupId>co.ichongwu</groupId>
 	<artifactId>vidser</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>ichongwu</name>
@@ -71,7 +71,6 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.1.39</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
@@ -112,17 +111,24 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 		</dependency>
-		<!-- <dependency> <groupId>com.sina</groupId> <artifactId>sso-sdk-client</artifactId> 
-			<version>0.0.0</version> </dependency> -->
 		<!-- AOP -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>cn.com.sina</groupId>
-			<artifactId>dina-common</artifactId>
-			<version>1.0.1</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>co.ichongwu.crawler</groupId>
+			<artifactId>mongoose</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.7</version>
 		</dependency>
 	</dependencies>
 

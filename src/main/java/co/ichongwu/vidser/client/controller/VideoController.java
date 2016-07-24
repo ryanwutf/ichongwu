@@ -29,4 +29,11 @@ public class VideoController {
 		if(pageSize != null)  page.setPageSize(pageSize);
 		return CommonResponse.success(videoService.list(page));
 	}
+	
+	@RequestMapping("/video/url")
+	public CommonResponse getUrl(
+			@RequestParam String vid,
+			@RequestParam Integer source) {
+		return CommonResponse.success(videoService.getUrl(vid, source));
+	}
 }
