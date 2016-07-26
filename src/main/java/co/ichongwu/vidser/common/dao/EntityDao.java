@@ -14,6 +14,7 @@ import java.util.Map;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
@@ -78,6 +79,9 @@ public class EntityDao<E, I> extends JdbcDao {
             for (Field field : clazz.getDeclaredFields()) {
                 if (Modifier.isStatic(field.getModifiers())) {
                     continue;
+                }
+                if(field.getAnnotation(Transient.class) != null) {
+                	continue;
                 }
                 String fieldName = field.getName();
                 fields.add(fieldName);

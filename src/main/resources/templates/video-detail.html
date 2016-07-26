@@ -1,0 +1,336 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<link rel="stylesheet" href="/assets/css/swiper.min.css"></link>
+<link rel="stylesheet" href="/assets/css/default.css"></link>
+<script>
+		var ctx = '/video';
+	</script>
+<style type="text/css">
+.videoBox {
+	width: 100%;
+	max-width: 640px;
+	margin: 0 auto
+}
+
+.swiper-slide {
+	width: auto
+}
+
+.swiper-slide img {
+	height: 150px
+}
+
+.videoBox-playBox {
+	position: relative
+}
+
+.video {
+	width: 100%;
+	display: none
+}
+
+.play-btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 80px;
+	margin-left: -40px;
+	margin-top: -40px
+}
+
+.shade {
+	position: fixed;
+	z-index: 99;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.65;
+	display: none;
+}
+
+.hint {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: none;
+	z-index: 200;
+	margin-right: 0%;
+	margin-right: 3%;
+}
+
+.hint img {
+	width: 100%;
+}
+
+.report {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 46px;
+	height: 20px;
+	font-size: 12px;
+	background: #f3f3f3;
+	color: #adadad;
+	text-align: center;
+	line-height: 20px;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.floatMask {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 900;
+	background: rgba(0, 0, 0, .2);
+	display: none;
+}
+
+.floatLayer {
+	position: absolute;
+	top: 50px;
+	left: 50%;
+	height: 370px;
+	background: #fff;
+	padding: 15px;
+	margin-left: -145px;
+}
+
+.floatLayer, .rpReason {
+	width: 260px;
+	border: 1px solid #eee;
+}
+
+.rpTitle {
+	height: 30px;
+	font-size: 14px;
+	color: #999;
+	font-family: "Microsoft YaHei";
+}
+
+.reDesc {
+	width: 260px;
+	height: 32px;
+}
+
+.reDesc, .rpReason {
+	line-height: 32px;
+	text-indent: 12px;
+	font-size: 15px;
+	font-family: "Microsoft YaHei";
+}
+
+.rpContent {
+	width: 100%;
+	height: 70px;
+	border: 1px solid #eee;
+	padding: 8px 0 0 8px;
+}
+
+.rpReason {
+	height: 32px;
+	color: #000;
+	margin-bottom: 5px;
+	position: relative;
+	width: 100%;
+}
+
+.rpReasonActive::after {
+	content: "";
+	position: absolute;
+	left: 205px;
+	top: 12px;
+	width: 18px;
+	height: 12px;
+	background: url(http://z.sina.com.cn/static/css/images/check.png)
+		no-repeat;
+	background-size: contain
+}
+
+.rpContent textarea {
+	border: none;
+	outline: 0;
+	width: 100%;
+	height: 63px;
+	color: #ccc;
+}
+
+.rpBtn {
+	padding-left: 90px;
+	margin-top: 10px;
+}
+
+.closeBtn {
+	position: absolute;
+	top: -12px;
+	left: 234px;
+	z-index: 888px;
+}
+
+.closeBtn img {
+	width: 24px;
+	height: 24px;
+}
+
+img {
+	border: none;
+}
+
+.rpSubmit {
+	width: 80px;
+	height: 24px;
+	background: #e03f42;
+	color: #fff;
+	text-align: center;
+	font: 14px/24px "Microsoft YaHei";
+	tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent;
+}
+
+textarea {
+	-webkit-appearance: textarea;
+	background-color: white;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	-webkit-rtl-ordering: logical;
+	-webkit-user-select: text;
+	flex-direction: column;
+	resize: auto;
+	cursor: auto;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	border-width: 1px;
+	border-style: solid;
+	border-color: initial;
+	padding: 2px;
+}
+
+user agent stylesheet
+		input, textarea, keygen, select, button {
+	text-rendering: auto;
+	color: initial;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0px;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+	margin: 0em 0em 0em 0em;
+	font: 11px BlinkMacSystemFont;
+}
+
+user agent stylesheet
+		input, textarea, keygen, select, button, meter, progress {
+	-webkit-writing-mode: horizontal-tb;
+}
+</style>
+</head>
+
+<div style="display: none">
+	<script src="" language="JavaScript"></script>
+</div>
+<body>
+	<div class="shade"></div>
+
+	<div class="wrap">
+		<div class="videoBox">
+			<p class="font1 title" th:text="${video.title}">title</p>
+			<p class="font2 littleTitle">
+				<span style="text-align: left" th:text="${video.displayUpdateDate}"></span> 
+				<!--  这里频繁update会影响性能，应该使用redis做缓存-->
+				<span style="text-align: right" th:text="'播放量:'+ ${video.count}"> </span>
+				
+			</p>
+			<video class="video"
+				src=""
+				th:attr="src=${video.url}"
+				controls="controls"> 您的浏览器不支持 video 标签。
+			</video>
+
+			<div class="videoBox-playBox">
+				<img src="/assets/image/play.png"
+					class="play-btn" alt="" /> 
+				<img
+					src=""
+					th:attr="src=${video.thumb}"
+					width="100%" alt="" />
+			</div>
+
+
+			<p class="font2 littleTitle"></p>
+		</div>
+		<div class="line"></div>
+
+		<div>
+			<p class="nopl" style="color: #f44b36; padding: 10px">热门评论</p>
+		</div>
+		<ul class="plList">
+			<li class="listItem"><img
+				src="/assets/image/base.png" alt="" />
+				<div class="ItemMiddle">
+					<p class="font2">131****2360</p>
+					<p class="font3" style="color: #999;">太有趣啦！！</p>
+				</div> <span class="ItemRight littleTitle font3"> 2016-06-28 20:54
+			</span></li>
+			<li class="listItem"><img
+				src="/assets/image/base.png" alt="" />
+				<div class="ItemMiddle">
+					<p class="font2">187****2888</p>
+					<p class="font3" style="color: #999;">真是太可爱了</p>
+				</div> <span class="ItemRight littleTitle font3"> 2016-06-23 19:26
+			</span></li>
+			<li class="listItem"><img
+				src="/assets/image/4.png" alt="" />
+				<div class="ItemMiddle">
+					<p class="font2">138****2930</p>
+					<p class="font3" style="color: #999;">我喜欢</p>
+				</div> <span class="ItemRight littleTitle font3"> 2016-06-23 16:01
+			</span></li>
+		</ul>
+	</div>
+	<!--  
+	<div class="report" id="report">¾Ù±¨</div>
+	<div class="floatMask" id="floatMask" style="display: none;">
+		<div class="floatLayer">
+			<div class="rpTitle">sdf</div>
+			<div id="rpCont">
+				<div class="rpReason rpReasonActive">sdfs</div>
+				<div class="rpReason">sdfs</div>
+				<div class="rpReason">sdfs</div>
+				<div class="rpReason">sdfsf</div>
+				<div class="rpReason">fsdfsdf</div>
+			</div>
+			<div class="reDesc">sdfsfsdf</div>
+			<div class="rpContent">
+				<textarea class="inputCont" id="inputCont">fsdfsdf</textarea>
+			</div>
+			<div class="rpBtn">
+				<div class="rpSubmit" id="reSubmit">sdfsfds</div>
+			</div>
+			<div class="closeBtn" id="closeBtn">
+				<img src="http://z.sina.com.cn/static/css/images/p4.png" />
+			</div>
+		</div>
+	</div>
+	<div class="hint">
+		<img src="http://api.pantianhei.com/image/hint.png" alt="IE" />
+	</div>
+	-->
+	<span style="display:none" id="videoidforupdate" th:text="${video.id}"></span>
+	<script src="/assets/js/jquery-2.1.1.js"></script>
+	<script src="/assets/js/swiper.min.js"></script>
+	<script src="/assets/js/ichongwu.js"></script>
+
+</body>
+</html>

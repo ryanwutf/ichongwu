@@ -5,12 +5,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.thymeleaf.templateresolver.TemplateResolver;
 
 import java.io.IOException;
 import java.util.TimeZone;
@@ -21,7 +24,13 @@ import java.util.TimeZone;
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
    
-
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
+	}
+	
+	
+	
+	
 //    /**
 //     * 添加拦截器
 //     * @param registry

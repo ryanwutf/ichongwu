@@ -2,6 +2,7 @@ package co.ichongwu.vidser.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import co.ichongwu.vidser.common.entity.AbstractEntity;
 
@@ -21,7 +22,15 @@ public class Video extends AbstractEntity{
 	private Long count = 0L; //播放次数
 	private Integer status = 0; //状态 0：正常 1：删除
 	private String ext;
+	@Transient
+	private String displayUpdateDate = "";
 	
+	public String getDisplayUpdateDate() {
+		return displayUpdateDate;
+	}
+	public void setDisplayUpdateDate(String displayUpdateDate) {
+		this.displayUpdateDate = displayUpdateDate;
+	}
 	public String getExt() {
 		return ext;
 	}

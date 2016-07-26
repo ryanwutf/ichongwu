@@ -1,0 +1,114 @@
+/* 禁用iPhone中Safari的字号自动调整 */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+/* 去除iPhone中默认的input样式 */
+input{/* -webkit-appearance:none; */ resize: none;}
+/* 取消链接高亮  */
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,
+aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+    font-family: Microsoft YaHei;}
+/* 设置HTML5元素为块 */
+article, aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section {
+    display: block;
+}
+/* 图片自适应 */
+img {
+    max-width: 100%;
+    height: auto;
+    width:auto\9; /* ie8 */
+    -ms-interpolation-mode:bicubic;/*为了照顾ie图片缩放失真*/
+}
+*:focus {
+    outline:none;
+}
+/* 清零 */
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,
+aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section{margin:0; padding:0; border:none;}
+body{font-size: 18px;/*line-height: 1em;*/margin: 14px;font-family:Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self; color:#333;}
+em,i{font-style:normal;}
+strong{font-weight: normal;}
+.clearfix:after{content:""; display:block; visibility:hidden; height:0; clear:both;}
+.clearfix{zoom:1;}
+/*a{text-decoration:none; color:#666; font-family:Tahoma,Arial,Roboto,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self;}*/
+a:hover{color:#666; text-decoration:none;}
+ul,ol,li{list-style:none;}
+
+fieldset,img{border: none;margin:0 auto;}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+q:before,
+q:after {
+    content:"";
+}
+input:password {
+    ime-mode:disabled;
+}
+*{box-sizing:border-box;}
+.scope{min-width:320px; max-width:750px; margin: 0 auto;}
+
+@media screen and (min-width: 751px)
+{
+    html{ font-size:25px;}
+}
+@media screen and (min-width: 640px) and (max-width: 750px)
+{
+    html{ font-size:25px;}
+}
+@media screen and (min-width: 480px) and (max-width: 639px){
+    html{ font-size:20px;}
+}
+@media screen and (min-width: 380px) and (max-width: 479px) {
+    html{ font-size:18px;}
+}
+@media screen and (min-width: 320px) and (max-width: 379px) {
+    html{ font-size:12px;}
+}
+.wrap{ max-width: 640px;margin: 0 auto}
+.font1{font-size: 1.4rem}
+.font2{font-size: 1.2rem}
+.font3{font-size: 1rem}
+.font4{font-size: 0.8rem}
+
+.title,.littleTitle{margin: 10px 20px;}
+.littleTitle{display: flex;-moz-display:flex;color: #999}
+.littleTitle span{flex:1}
+.recommendVideo{border-left: 2px solid #d32f2f;padding-left: 20px;margin-bottom: 5px}
+.recommendVideoText{position: relative;top: 1px}
+.line{height: 10px;background-color: #f1f1f1;width: 100%}
+.recommendVideoBox{margin: 15px 0px;}
+.swiper-slide {margin-right: 5px!important;margin-left: 10px;position: relative}
+.optionBg{
+    color: #ffffff;
+    padding: 10px 5px 5px;
+    position: absolute;
+    bottom:1px;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.6) 0%,  rgba(255, 255, 255, 0) 100%);
+    background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.6) 0%,  rgba(255, 255, 255, 0) 100%);
+    /*background: -moz-linear-gradient(bottom,rgba(0,0,0,.6),#fff 100%);*/
+    /*background: -webkit-gradient(linear,0 0, 0 100%,to(#fff), from(rgba(0,0,0,.6)));*/
+}
+.plList{padding: 0px 12px 20px;max-width: 640px}
+.listItem img{width:30px;border-radius: 50px;height: 30px;margin-right: 5px;vertical-align: middle;display: block}
+.listItem{
+    display: -webkit-flex;    /* Chrome, WebKit */
+    display: flex;display:-moz-flex;border-bottom: 1px solid #eee;padding: 20px 0px;}
+.ItemMiddle{flex:1}
+.fixed{ position: fixed;bottom: 0px;}
+.ItemRight{width:100px;padding-left:10px;}
+.fixInput{
+    margin: 0 auto;
+    background-color: #f4f4f4;width: 100%;height:3rem;box-shadow: 0px -1px 8px #999}
+.fieldInput input.word{display: block;width: 80%;height: 1.7rem;}
+.fieldInput{display:flex; display: -webkit-flex; display:-moz-flex; background-color: #ffffff;border: 1px solid #DADADA;height: 2rem;margin: .5rem 1rem;border-radius: 50px;width: 80%;float: left}
+.pen{background: url('../img/pen.png');display: inline-block;width: 14px;background-size: 100%;height: 15px;margin: 5px 5px 0px 5px;}
+.subBtn{width: 20px;background: url("../img/send.png");background-size: 100%;float: left;margin-top: 13px;}
+

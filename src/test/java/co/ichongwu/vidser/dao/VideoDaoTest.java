@@ -24,5 +24,19 @@ public class VideoDaoTest {
 		Video video = videoDao.get(1L);
 		System.out.println(video.getTitle());
 	}
+	
+	@Test
+	public void testGetByVid() {
+		Video video = videoDao.get("26076345",2);
+		System.out.println(video.getTitle());
+	}
+	
+	@Test
+	public void testAddCount() {
+		Long id = 1L;
+		System.out.println(videoDao.get(id).getCount());
+		videoDao.addCount(id);
+		System.out.println(videoDao.get(id).getCount());
+	}
 
 }

@@ -30,10 +30,18 @@ public class VideoController {
 		return CommonResponse.success(videoService.list(page));
 	}
 	
+	
 	@RequestMapping("/video/url")
 	public CommonResponse getUrl(
 			@RequestParam String vid,
 			@RequestParam Integer source) {
 		return CommonResponse.success(videoService.getUrl(vid, source));
+	}
+	
+	@RequestMapping("/video/addCount")
+	public CommonResponse addCount(
+			@RequestParam Long id) {
+		videoService.addCount(id);
+		return CommonResponse.getSuccessfulResponse();
 	}
 }

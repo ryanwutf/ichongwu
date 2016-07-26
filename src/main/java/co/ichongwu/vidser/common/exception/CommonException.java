@@ -4,7 +4,12 @@ package co.ichongwu.vidser.common.exception;
  * Created by whf on 3/20/16.
  */
 public abstract class CommonException extends Exception {
-    protected CommonException(String msg) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected CommonException(String msg) {
         super(msg);
     }
 
