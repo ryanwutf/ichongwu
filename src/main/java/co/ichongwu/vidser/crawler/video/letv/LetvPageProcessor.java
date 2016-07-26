@@ -1,4 +1,4 @@
-package co.ichongwu.vidser.crawler.letv;
+package co.ichongwu.vidser.crawler.video.letv;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
-import com.google.gson.Gson;
 
 import co.ichongwu.crawler.utils.HttpUtil;
 

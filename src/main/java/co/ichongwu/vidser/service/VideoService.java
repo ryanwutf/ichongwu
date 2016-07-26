@@ -13,9 +13,10 @@ import co.ichongwu.vidser.client.controller.VideoController;
 import co.ichongwu.vidser.common.dao.QueryLimit;
 import co.ichongwu.vidser.common.vo.Page;
 import co.ichongwu.vidser.config.Constants;
-import co.ichongwu.vidser.crawler.letv.LetvUtil;
+import co.ichongwu.vidser.crawler.video.letv.LetvUtil;
 import co.ichongwu.vidser.dao.VideoDao;
 import co.ichongwu.vidser.entity.Video;
+import co.ichongwu.vidser.utils.DateUtil;
 
 @Service
 public class VideoService {
@@ -27,6 +28,15 @@ public class VideoService {
 		QueryLimit queryLimit = new QueryLimit(page.offset(), page.limit());
 		page.setData(videoDao.list(null, queryLimit));
 		return page;
+	}
+	
+	public Video detail(Long id) {
+		Video video = videoDao.get(id);
+		if(video != null) {
+			video.setUrl(getUrl(video.getVid(), video.getSource()));
+			video.setDisplayUpdateDate(DateUtil.dateToString(video.getUpdateTime(), "yyyy-MM-dd"));
+		}
+		return video;
 	}
 
 	public String getUrl(String vid, Integer source) {
@@ -41,6 +51,10 @@ public class VideoService {
 		} 
 		
 		return null;
+	}
+	
+	public void addCount(Long id) {
+		videoDao.addCount(id);
 	}
 
 	protected String getSite56Url(String vid) {

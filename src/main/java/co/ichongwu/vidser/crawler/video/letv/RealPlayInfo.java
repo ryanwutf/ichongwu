@@ -1,4 +1,4 @@
-package co.ichongwu.vidser.crawler.letv;
+package co.ichongwu.vidser.crawler.video.letv;
 
 public class RealPlayInfo {
 	

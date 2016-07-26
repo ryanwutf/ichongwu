@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.ichongwu.vidser.config.Constants;
-import co.ichongwu.vidser.crawler.letv.LetvPageProcessor;
-import co.ichongwu.vidser.crawler.letv.LetvPageProcessor.LetvVideoCell;
+import co.ichongwu.vidser.crawler.video.letv.LetvPageProcessor;
+import co.ichongwu.vidser.crawler.video.letv.LetvPageProcessor.LetvVideoCell;
 import co.ichongwu.vidser.dao.VideoDao;
 import co.ichongwu.vidser.entity.Video;
 import co.ichongwu.vidser.utils.ConversionUtil;
