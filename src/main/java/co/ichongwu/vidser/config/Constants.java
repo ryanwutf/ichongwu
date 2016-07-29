@@ -26,5 +26,7 @@ public class Constants {
     	public static final Integer LETV = 2;
     }
     
-
+    public static class NEWS_SOURCE {
+    	public static final Integer HOME = 1;
+    }
 }
